@@ -3,14 +3,15 @@ This project is a simple Springboot 3 project which sends logs via TCP to a logs
 
 
 ## How to run
+ELK needs 3 services/components started, Elasticsearch, Kibana, Logstash.
 **1. Start elasticsearch:**
-elasticsearch comes with security enable by default, that could be a problem if you only want to run and test quickly you application. So first we need to Enable security features in the <ELASTICSEARCH_FILES>./config/elasticsearch.yaml
+elasticsearch comes with security enable by default, I found that could be a problem if you only want to run and test quickly your application. So, first we need to Desable security features in the <ELASTICSEARCH_FILES>./config/elasticsearch.yaml, this will make our Kibana configuration easy.
 ```
 # Enable security features
 xpack.security.enabled: false
 xpack.security.enrollment.enabled: false
 ```
-**2. Start Kibana**
+**2. Start Kibana**, if you do not disable security, you will be asked to set connect to elasticsearch
 **3. Start logstash:**
 You need to edit you <LOGSTASH_FILES>./config/logstash-sample.conf to tell logstash that the input will be TCP
 
