@@ -1,5 +1,5 @@
 # About this project
-This project is a simple Springboot 3 project which send logs via TCP to a logstash server. Once you start all the services needed you should see the logs in Kibana
+This project is a simple Springboot 3 project which sends logs via TCP to a logstash server to be displayed in Kibana.
 
 
 ## How to run
