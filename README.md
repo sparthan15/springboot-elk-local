@@ -12,6 +12,7 @@ xpack.security.enabled: false
 xpack.security.enrollment.enabled: false
 ```
 **2. Start Kibana**, if you do not disable security, you will be asked to set connect to elasticsearch
+
 **3. Start logstash:**
 You need to edit you <LOGSTASH_FILES>./config/logstash-sample.conf to tell logstash that the input will be TCP
 
