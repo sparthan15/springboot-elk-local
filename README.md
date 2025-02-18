@@ -3,17 +3,23 @@ This project is a simple Springboot 3 project which sends logs via TCP to a logs
 
 
 ## How to run
-ELK needs 3 services/components started, Elasticsearch, Kibana, Logstash.
-**1. Start elasticsearch:**
-elasticsearch comes with security enable by default, I found that could be a problem if you only want to run and test quickly your application. So, first we need to Desable security features in the <ELASTICSEARCH_FILES>./config/elasticsearch.yaml, this will make our Kibana configuration easy.
+ELK needs 3 services/components started, [Elasticsearch](https://www.elastic.co/es/downloads/elasticsearch), [Kibana](https://www.elastic.co/downloads/kibana), [Logstash](https://www.elastic.co/es/downloads/logstash). Please manually download each one on your machine.
+
+**1. Start up elasticsearch:**
+elasticsearch comes with security enable by default, I found that could be a problem if you only want to run and test quickly your application. So, first we need to Desable security features in the <ELASTICSEARCH_FILES>./config/elasticsearch.yml, this will make our Kibana configuration easy.
 ```
 # Enable security features
 xpack.security.enabled: false
 xpack.security.enrollment.enabled: false
 ```
-**2. Start Kibana**, if you do not disable security, you will be asked to set connect to elasticsearch.
-**3. Start logstash:**
-You need to edit you <LOGSTASH_FILES>./config/logstash-sample.conf to tell logstash that the input will be TCP
+**2. Start up Kibana**, if you do not disable security, you will be asked to set connect to elasticsearch
+
+**3. Start up logstash:**
+You need to edit you <LOGSTASH_FILES>./config/logstash-sample.conf to tell logstash that the input will be TCP. Here you can look how my config file looks like.
+Once you have your config file done, you should start logstash this way:
+```
+./bin/logstash -f ./config/logstash-sample.conf
+```
 
 Content of logstash-sample.conf
 ```
